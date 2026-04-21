@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SHARK TECH, LLC — Simple Apps. Real Utility.</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ocean:  #0a2540;
+    --deep:   #061828;
+    --teal:   #00c6ae;
+    --teal2:  #00e0c6;
+    --coral:  #ff6b6b;
+    --white:  #ffffff;
+    --gray:   #6b7a8d;
+    --radius: 18px;
+    --shadow: 0 8px 32px rgba(0,198,174,0.13);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--white);
+    color: var(--ocean);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(10,37,64,0.96);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--teal); letter-spacing: 2px;
+  }
+  .nav-logo span { color: var(--white); }
+  nav ul { list-style: none; display: flex; gap: 32px; }
+  nav ul a {
+    text-decoration: none; color: rgba(255,255,255,0.8);
+    font-weight: 700; font-size: 0.92rem; letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--teal2); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--ocean);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 60%, rgba(0,198,174,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 30%, rgba(0,198,174,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(0,198,174,0.15);
+    border: 1px solid rgba(0,198,174,0.4);
+    color: var(--teal2); border-radius: 999px;
+    padding: 6px 20px; font-size: 0.8rem;
+    font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 28px;
+  }
+  #hero h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.1; margin-bottom: 24px;
+    letter-spacing: -1px;
+  }
+  #hero h1 span { color: var(--teal); }
+  #hero p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.7);
+    max-width: 600px; line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center; margin-bottom: 48px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    border-radius: 999px; padding: 8px 20px;
+    font-size: 0.88rem; font-weight: 700;
+  }
+  .pill .icon { margin-right: 6px; }
+  .hero-cta {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  }
+  .btn-primary {
+    background: var(--teal); color: var(--deep);
+    border: none; border-radius: 12px;
+    padding: 14px 32px; font-size: 1rem;
+    font-weight: 800; cursor: pointer;
+    text-decoration: none; transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .btn-primary:hover { background: var(--teal2); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.25);
+    color: var(--white); border-radius: 12px;
+    padding: 14px 32px; font-size: 1rem;
+    font-weight: 800; cursor: pointer;
+    text-decoration: none; transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+  /* ── APPS ── */
+  #apps {
+    padding: 100px 24px;
+    background: #f7fcfb;
+  }
+  .section-label {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 16px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900; color: var(--ocean);
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--gray); font-size: 1.05rem;
+    max-width: 560px; margin: 0 auto 60px;
+    line-height: 1.6;
+  }
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px; max-width: 1100px; margin: 0 auto;
+  }
+  .app-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,198,174,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .app-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,198,174,0.18); }
+  .app-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--teal2));
+  }
+  .app-icon {
+    width: 64px; height: 64px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--ocean), #1a4a7a);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(10,37,64,0.2);
+  }
+  .app-status {
+    display: inline-block;
+    background: rgba(255,107,107,0.12);
+    color: var(--coral);
+    border-radius: 999px; padding: 3px 14px;
+    font-size: 0.75rem; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .app-status.soon {
+    background: rgba(0,198,174,0.12);
+    color: var(--teal);
+  }
+  .app-card h3 {
+    font-size: 1.3rem; font-weight: 900;
+    color: var(--ocean); margin-bottom: 10px;
+  }
+  .app-card p {
+    color: var(--gray); font-size: 0.95rem;
+    line-height: 1.6; margin-bottom: 24px;
+  }
+  .app-features {
+    list-style: none; margin-bottom: 28px;
+  }
+  .app-features li {
+    font-size: 0.88rem; color: var(--ocean);
+    padding: 4px 0; font-weight: 600;
+  }
+  .app-features li::before { content: '✓ '; color: var(--teal); font-weight: 900; }
+  .app-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--ocean); margin-bottom: 18px;
+  }
+  .app-price .note { font-size: 0.75rem; color: var(--gray); font-family: 'Nunito', sans-serif; }
+  .btn-store {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ocean); color: var(--white);
+    border-radius: 10px; padding: 12px 22px;
+    text-decoration: none; font-weight: 800;
+    font-size: 0.9rem; transition: all 0.2s;
+    width: 100%; justify-content: center;
+  }
+  .btn-store:hover { background: #1a4a7a; transform: translateY(-1px); }
+  .btn-store.disabled {
+    background: rgba(10,37,64,0.15);
+    color: var(--gray); cursor: not-allowed;
+    pointer-events: none;
+  }
+  .btn-store svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  /* ── PROMISE ── */
+  #promise {
+    padding: 80px 24px;
+    background: var(--ocean);
+  }
+  .promise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px; max-width: 900px; margin: 0 auto;
+  }
+  .promise-item {
+    text-align: center; padding: 32px 24px;
+    background: rgba(255,255,255,0.05);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,198,174,0.15);
+  }
+  .promise-icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .promise-item h4 {
+    color: var(--teal); font-size: 1rem;
+    font-weight: 900; margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .promise-item p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.88rem; line-height: 1.5;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    padding: 100px 24px;
+    background: var(--white);
+  }
+  .about-inner {
+    max-width: 800px; margin: 0 auto; text-align: center;
+  }
+  .about-inner p {
+    color: var(--gray); font-size: 1.05rem;
+    line-height: 1.8; margin-bottom: 20px;
+  }
+  .contact-card {
+    margin-top: 48px;
+    background: #f7fcfb;
+    border-radius: var(--radius);
+    padding: 40px;
+    border: 1px solid rgba(0,198,174,0.15);
+    display: inline-block; text-align: left;
+    width: 100%; max-width: 480px;
+  }
+  .contact-card h3 {
+    font-size: 1.1rem; font-weight: 900;
+    color: var(--ocean); margin-bottom: 20px;
+  }
+  .contact-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+    font-size: 0.95rem; color: var(--ocean); font-weight: 600;
+  }
+  .contact-row .ci { font-size: 1.2rem; width: 24px; text-align: center; }
+  .contact-row a { color: var(--teal); text-decoration: none; font-weight: 700; }
+  .contact-row a:hover { text-decoration: underline; }
+
+  /* ── PRIVACY ── */
+  #privacy {
+    padding: 100px 24px;
+    background: #f7fcfb;
+  }
+  .privacy-inner {
+    max-width: 780px; margin: 0 auto;
+  }
+  .privacy-inner h3 {
+    font-size: 1.1rem; font-weight: 800;
+    color: var(--ocean); margin: 32px 0 10px;
+  }
+  .privacy-inner p, .privacy-inner li {
+    color: var(--gray); font-size: 0.95rem;
+    line-height: 1.75;
+  }
+  .privacy-inner ul { padding-left: 20px; margin-top: 8px; }
+  .privacy-inner li { margin-bottom: 6px; }
+  .privacy-updated {
+    font-size: 0.85rem; color: var(--gray);
+    margin-bottom: 32px; font-style: italic;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.5);
+    text-align: center; padding: 40px 24px;
+    font-size: 0.88rem;
+  }
+  .footer-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem; color: var(--teal);
+    letter-spacing: 2px; margin-bottom: 12px;
+    font-weight: 700;
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    nav { padding: 16px 20px; }
+    nav ul { gap: 18px; }
+    nav ul a { font-size: 0.82rem; }
+    .contact-card { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SHARK<span> TECH</span></div>
+  <ul>
+    <li><a href="#apps">Apps</a></li>
+    <li><a href="#about">Contact</a></li>
+    <li><a href="#privacy">Privacy</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge">🦈 SHARK TECH, LLC</div>
+  <h1>Simple apps.<br><span>Real utility.</span></h1>
+  <p>We build mobile apps that solve real problems — no ads, no subscriptions, no nonsense. Pay once and it's yours.</p>
+  <div class="hero-pills">
+    <span class="pill"><span class="icon">🚫</span>No Ads</span>
+    <span class="pill"><span class="icon">💳</span>One-Time Fee</span>
+    <span class="pill"><span class="icon">📴</span>No Account Needed</span>
+    <span class="pill"><span class="icon">🔒</span>Your Data Stays on Your Device</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#apps" class="btn-primary">See Our Apps</a>
+    <a href="#about" class="btn-secondary">Contact Us</a>
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps">
+  <div class="section-label">Our Apps</div>
+  <h2 class="section-title">Tools that actually help</h2>
+  <p class="section-sub">Built for people who need reliable information, not more subscriptions.</p>
+
+  <div class="apps-grid">
+
+    <!-- App 1: My Visa Priority Alert -->
+    <div class="app-card">
+      <div class="app-icon">📅</div>
+      <div class="app-status soon">Coming Soon</div>
+      <h3>My Visa Priority Alert</h3>
+      <p>Track USCIS Visa Bulletin priority dates for your family category and country. Get notified the moment your date moves — advance or retrogress.</p>
+      <ul class="app-features">
+        <li>Tracks Final Action &amp; Filing dates</li>
+        <li>Movement alerts via notification</li>
+        <li>Full bulletin history &amp; trends</li>
+        <li>All data stored on your device</li>
+        <li>No account. No server. No cloud.</li>
+      </ul>
+      <div class="app-price">$4.99 <span class="note">one-time · Android</span></div>
+      <a class="btn-store disabled" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
+        Google Play — Coming Soon
+      </a>
+    </div>
+
+    <!-- Placeholder: More apps coming -->
+    <div class="app-card" style="background: rgba(10,37,64,0.03); border-style: dashed; box-shadow: none;">
+      <div class="app-icon" style="background: rgba(10,37,64,0.06);">🔭</div>
+      <div class="app-status soon">Coming Soon</div>
+      <h3>More Apps on the Way</h3>
+      <p>We're building a full suite of immigration tools, plus health and home apps — all with the same promise: one-time fee, no ads, works offline.</p>
+      <ul class="app-features">
+        <li>USCIS Case Tracker</li>
+        <li>NVC Case Tracker</li>
+        <li>Immigration Interview Prep</li>
+        <li>And more…</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section id="promise">
+  <div class="section-label" style="color:rgba(0,198,174,0.7);">Our Promise</div>
+  <h2 class="section-title" style="color:var(--white); margin-bottom:48px;">What you get with every app</h2>
+  <div class="promise-grid">
+    <div class="promise-item">
+      <div class="promise-icon">🚫</div>
+      <h4>Zero Ads</h4>
+      <p>No advertising. Ever. We don't sell your attention.</p>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">💳</div>
+      <h4>One-Time Fee</h4>
+      <p>Pay once. Use it forever. No recurring charges.</p>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">📴</div>
+      <h4>No Account</h4>
+      <p>No sign-up. No login. Just open and use it.</p>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">🔒</div>
+      <h4>Your Data</h4>
+      <p>Everything stays on your device. We can't see it — we don't want to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT & CONTACT -->
+<section id="about">
+  <div class="section-label">About Us</div>
+  <h2 class="section-title">Who we are</h2>
+  <div class="about-inner">
+    <p>SHARK TECH, LLC is a small software company focused on building practical mobile tools for everyday life. We're especially passionate about the immigrant community — people navigating complex systems who deserve clear, reliable tools they can trust.</p>
+    <p>Every app we build follows the same principles: simple interface, honest pricing, no hidden costs, and your privacy respected completely.</p>
+    <div style="display:flex; justify-content:center;">
+      <div class="contact-card">
+        <h3>Get in touch</h3>
+        <div class="contact-row">
+          <span class="ci">✉️</span>
+          <a href="mailto:contactus@gosharktech.com">contactus@gosharktech.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="ci">🌐</span>
+          <a href="https://gosharktech.com">gosharktech.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="ci">📍</span>
+          <span>United States</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy">
+  <div class="section-label">Legal</div>
+  <h2 class="section-title">Privacy Policy</h2>
+  <div class="privacy-inner">
+    <p class="privacy-updated">Last updated: April 2026</p>
+
+    <p>SHARK TECH, LLC ("we," "our," or "us") operates mobile applications available on the Google Play Store. This Privacy Policy explains our practices regarding information in those apps.</p>
+
+    <h3>1. No Personal Data Collected</h3>
+    <p>We do not collect, transmit, or store any personal information. Our apps do not require an account, do not ask for your name, email address, or any identifying information, and do not send any user data to our servers — because we don't have any servers that receive user data.</p>
+
+    <h3>2. Data Stored On Your Device</h3>
+    <p>All data you enter into our apps (such as tracked dates or preferences) is stored locally on your device only. This data never leaves your device except as described below.</p>
+
+    <h3>3. Network Access</h3>
+    <p>Our apps may connect to the internet solely to fetch publicly available information required for app functionality, such as:</p>
+    <ul>
+      <li>USCIS Visa Bulletin data (published at uscis.gov — public information)</li>
+      <li>App configuration data hosted on GitHub (public data)</li>
+    </ul>
+    <p>No personal data is transmitted during these requests. The requests are equivalent to visiting a public webpage.</p>
+
+    <h3>4. Notifications</h3>
+    <p>Push notifications in our apps are generated and delivered locally on your device. We do not use third-party push notification services that transmit data to remote servers.</p>
+
+    <h3>5. In-App Purchases</h3>
+    <p>Some apps offer optional one-time purchases through Google Play Billing. All payment processing is handled entirely by Google. We do not receive or store your payment information. Google's Privacy Policy governs all billing transactions.</p>
+
+    <h3>6. Children's Privacy</h3>
+    <p>Our apps are not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us and we will address it promptly.</p>
+
+    <h3>7. Third-Party Services</h3>
+    <p>Our apps do not include third-party advertising SDKs, analytics services, or tracking libraries. The only third-party service involved is Google Play Billing for in-app purchases, which is governed by Google's own privacy policy.</p>
+
+    <h3>8. Your Rights</h3>
+    <p>Because we collect no personal data, there is nothing for us to access, correct, or delete on your behalf. All data stored by our apps lives on your device and can be removed by uninstalling the app.</p>
+
+    <h3>9. Changes to This Policy</h3>
+    <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date above. Continued use of our apps after any changes constitutes acceptance of the revised policy.</p>
+
+    <h3>10. Contact Us</h3>
+    <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:contactus@gosharktech.com" style="color:var(--teal);">contactus@gosharktech.com</a>. We will respond within 30 days.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SHARK TECH, LLC</div>
+  <p style="margin-bottom:10px;">Simple apps. Real utility. Built with care.</p>
+  <p><a href="#privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="#about">Contact</a> &nbsp;·&nbsp; © 2026 SHARK TECH, LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
