@@ -36,7 +36,7 @@
   }
   .nav-logo {
     font-family: 'Space Mono', monospace;
-    font-size: 2.20rem; font-weight: 700;
+    font-size: 1.5rem; font-weight: 700;
     color: var(--teal); letter-spacing: 2px;
   }
   .nav-logo span { color: var(--white); }
@@ -47,7 +47,13 @@
     transition: color 0.2s;
   }
   nav ul a:hover { color: var(--teal2); }
-
+  
+  @media (max-width: 600px) {
+    nav { padding: 14px 20px; }
+    nav ul { gap: 16px; }
+    nav ul a { font-size: 0.85rem; }
+  }
+  
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
@@ -350,7 +356,7 @@
 <!-- HERO -->
 <section id="hero">
   <div style="text-align:center;">
-     <img src="SHARKGrey.png" alt="SHARK TECH LLC" style="height:200px; margin-bottom:16px;"/>
+     <img src="SHARKGrey.png" alt="SHARK TECH LLC" style="height:150px; margin-bottom:16px;"/>
   </div>
   <h1>Simple apps.<br><span>Real utility.</span></h1>
   <p>We build mobile apps that solve real problems — no ads, no subscriptions, no nonsense. Pay once and it's yours.</p>
