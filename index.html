@@ -38,22 +38,23 @@
     font-family: 'Space Mono', monospace;
     font-size: 1.5rem; font-weight: 700;
     color: var(--teal); letter-spacing: 2px;
+    text-decoration: none;
   }
   .nav-logo span { color: var(--white); }
   nav ul { list-style: none; display: flex; gap: 32px; }
-  nav ul a { 
+  nav ul a {
     text-decoration: none; color: rgba(255,255,255,0.8);
     font-weight: 700; font-size: 1rem; letter-spacing: 0.5px;
     transition: color 0.2s;
   }
   nav ul a:hover { color: var(--teal2); }
-  
+
   @media (max-width: 600px) {
     nav { padding: 14px 20px; }
     nav ul { gap: 16px; }
     nav ul a { font-size: 0.85rem; }
   }
-  
+
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
@@ -157,7 +158,7 @@
   .apps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px; max-width: 1100px; margin: 0 auto;
+    gap: 28px; max-width: 1200px; margin: 0 auto;
   }
   .app-card {
     background: var(--white);
@@ -167,6 +168,7 @@
     border: 1px solid rgba(0,198,174,0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
   }
   .app-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,198,174,0.18); }
   .app-card::before {
@@ -176,11 +178,13 @@
   }
   .app-icon {
     width: 64px; height: 64px; border-radius: 16px;
-    background: linear-gradient(135deg, var(--ocean), #1a4a7a);
+    overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; margin-bottom: 20px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 16px rgba(10,37,64,0.2);
+    flex-shrink: 0;
   }
+  .app-icon img { width: 64px; height: 64px; border-radius: 16px; display: block; }
   .app-status {
     display: inline-block;
     background: rgba(255,107,107,0.12);
@@ -204,6 +208,7 @@
   }
   .app-features {
     list-style: none; margin-bottom: 28px;
+    flex: 1;
   }
   .app-features li {
     font-size: 0.88rem; color: var(--ocean);
@@ -345,7 +350,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo" style="text-decoration:none;">SHARK<span> TECH</span></a>
+  <a href="#hero" class="nav-logo">SHARK<span> TECH</span></a>
   <ul>
     <li><a href="#apps">Apps</a></li>
     <li><a href="#about">Contact</a></li>
@@ -356,7 +361,7 @@
 <!-- HERO -->
 <section id="hero">
   <div style="text-align:center;">
-     <img src="SHARKGrey.png" alt="SHARK TECH LLC" style="height:150px; margin-bottom:16px;"/>
+    <img src="SHARKGrey.png" alt="SHARK TECH LLC" style="height:150px; margin-bottom:16px;"/>
   </div>
   <h1>Simple apps.<br><span>Real utility.</span></h1>
   <p>We build mobile apps that solve real problems — no ads, no subscriptions, no nonsense. Pay once and it's yours.</p>
@@ -382,8 +387,8 @@
 
     <!-- App 1: My Visa Priority Alert -->
     <div class="app-card">
-      <div class="app-icon" style="padding:0; overflow:hidden;">
-          <img src="icon_visa_bulletin.png" alt="My Visa Priority Alert icon" style="width:64px; height:64px; border-radius:16px;"/>
+      <div class="app-icon">
+        <img src="my-visa-priority-alert.png" alt="My Visa Priority Alert icon"/>
       </div>
       <div class="app-status soon">Coming Soon</div>
       <h3>My Visa Priority Alert</h3>
@@ -400,26 +405,72 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
         Google Play — Coming Soon
       </a>
-      <div style="margin-top:24px; text-align:center; opacity:0.4;">
-        <div style="width:80px; height:80px; border:2px dashed var(--gray); border-radius:8px; margin:0 auto 8px; display:flex; align-items:center; justify-content:center; font-size:1.8rem;">▦</div>
-          <p style="font-size:0.75rem; color:var(--gray); margin:0;">QR code coming soon</p>
-        </div>
     </div>
 
-    <!-- Placeholder: More apps coming -->
-    <div class="app-card" style="background: rgba(10,37,64,0.03); border-style: dashed; box-shadow: none;">
-       <div class="app-icon" style="padding:0; overflow:hidden;">
-          <img src="icon_case_tracker.png" alt="My Case Tracker icon" style="width:64px; height:64px; border-radius:16px;"/>
+    <!-- App 2: My Case Tracker (USCIS) -->
+    <div class="app-card">
+      <div class="app-icon">
+        <img src="my-case-tracker.png" alt="My Case Tracker icon"/>
       </div>
       <div class="app-status soon">Coming Soon</div>
-      <h3>More Apps on the Way - My Case Tracker</h3>
-      <p>We're building a full suite of immigration tools, plus health and home apps — all with the same promise: one-time fee, no ads, works offline.</p>
+      <h3>My Case Tracker</h3>
+      <p>Monitor your USCIS case status automatically. Know the moment something changes — without checking manually every day.</p>
       <ul class="app-features">
-        <li>USCIS Case Tracker</li>
-        <li>NVC Case Tracker</li>
-        <li>Immigration Interview Prep</li>
-        <li>And more…</li>
+        <li>Automatic case status monitoring</li>
+        <li>Instant push notifications on updates</li>
+        <li>Full status history timeline</li>
+        <li>Plain-English status explanations</li>
+        <li>No account. No cloud. 100% private.</li>
       </ul>
+      <div class="app-price">$4.99 <span class="note">one-time · Android</span></div>
+      <a class="btn-store disabled" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
+        Google Play — Coming Soon
+      </a>
+    </div>
+
+    <!-- App 3: My NVC Case Tracker -->
+    <div class="app-card">
+      <div class="app-icon">
+        <img src="my-nvc-case-tracker.png" alt="My NVC Case Tracker icon"/>
+      </div>
+      <div class="app-status soon">Coming Soon</div>
+      <h3>My NVC Case Tracker</h3>
+      <p>Track your National Visa Center case through the immigrant visa process. Stay informed at every stage — from case creation to interview scheduling.</p>
+      <ul class="app-features">
+        <li>Monitors NVC case status automatically</li>
+        <li>Alerts on every status change</li>
+        <li>Covers all NVC stages end-to-end</li>
+        <li>Plain-English explanations &amp; next steps</li>
+        <li>Available in English &amp; Spanish</li>
+      </ul>
+      <div class="app-price">$4.99 <span class="note">one-time · Android</span></div>
+      <a class="btn-store disabled" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
+        Google Play — Coming Soon
+      </a>
+    </div>
+
+    <!-- App 4: My Citizenship Prep -->
+    <div class="app-card">
+      <div class="app-icon">
+        <img src="my-citizenship-prep.png" alt="My Citizenship Prep icon"/>
+      </div>
+      <div class="app-status soon">Coming Soon</div>
+      <h3>My Citizenship Prep</h3>
+      <p>Prepare for the US naturalization civics test with confidence. Covers both the 2008 and 2025 USCIS test versions — including the 65/20 special consideration questions.</p>
+      <ul class="app-features">
+        <li>All 100 (2008) and 128 (2025) civics questions</li>
+        <li>Flashcards, quizzes &amp; interview simulation</li>
+        <li>Audio pronunciation included free</li>
+        <li>Premium AI voice add-on available</li>
+        <li>Available in English &amp; Spanish</li>
+      </ul>
+      <div class="app-price">$2.99 <span class="note">one-time · Android</span></div>
+      <a class="btn-store disabled" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
+        Google Play — Coming Soon
+      </a>
     </div>
 
   </div>
@@ -493,12 +544,14 @@
     <p>We do not collect, transmit, or store any personal information. Our apps do not require an account, do not ask for your name, email address, or any identifying information, and do not send any user data to our servers — because we don't have any servers that receive user data.</p>
 
     <h3>2. Data Stored On Your Device</h3>
-    <p>All data you enter into our apps (such as tracked dates or preferences) is stored locally on your device only. This data never leaves your device except as described below.</p>
+    <p>All data you enter into our apps (such as tracked case numbers, priority dates, or study progress) is stored locally on your device only. This data never leaves your device except as described below.</p>
 
     <h3>3. Network Access</h3>
     <p>Our apps may connect to the internet solely to fetch publicly available information required for app functionality, such as:</p>
     <ul>
       <li>USCIS Visa Bulletin data (published at uscis.gov — public information)</li>
+      <li>USCIS case status information (published at egov.uscis.gov — public information)</li>
+      <li>National Visa Center case status information (published at ceac.state.gov — public information)</li>
       <li>App configuration data hosted on GitHub (public data)</li>
     </ul>
     <p>No personal data is transmitted during these requests. The requests are equivalent to visiting a public webpage.</p>
