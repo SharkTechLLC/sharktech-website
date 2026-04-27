@@ -21,7 +21,7 @@
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Nunito', sans-serif;
-    background: var(--white);
+    background: var(--deep);
     color: var(--ocean);
     overflow-x: hidden;
   }
@@ -73,6 +73,15 @@
       radial-gradient(ellipse 40% 40% at 80% 30%, rgba(0,198,174,0.08) 0%, transparent 60%);
     pointer-events: none;
   }
+
+  .hero-logo {
+    width: min(680px, 88vw);
+    max-height: 230px;
+    object-fit: contain;
+    margin-bottom: 26px;
+    filter: drop-shadow(0 18px 40px rgba(0,0,0,0.45));
+  }
+
   .hero-badge {
     display: inline-block;
     background: rgba(0,198,174,0.15);
@@ -134,24 +143,26 @@
   /* ── APPS ── */
   #apps {
     padding: 100px 24px;
-    background: #f7fcfb;
+    background:
+      radial-gradient(ellipse 55% 35% at 50% 0%, rgba(0,198,174,0.12), transparent 70%),
+      linear-gradient(180deg, #071d31 0%, #0a2540 100%);
   }
   .section-label {
     text-align: center;
     font-family: 'Space Mono', monospace;
     font-size: 1.50rem; font-weight: 700;
     letter-spacing: 3px; text-transform: uppercase;
-    color: var(--teal); margin-bottom: 16px;
+    color: var(--teal2); margin-bottom: 16px;
   }
   .section-title {
     text-align: center;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 900; color: var(--ocean);
+    font-weight: 900; color: var(--white);
     margin-bottom: 16px;
   }
   .section-sub {
     text-align: center;
-    color: var(--gray); font-size: 1.05rem;
+    color: rgba(255,255,255,0.70); font-size: 1.05rem;
     max-width: 560px; margin: 0 auto 60px;
     line-height: 1.6;
   }
@@ -161,16 +172,16 @@
     gap: 28px; max-width: 1200px; margin: 0 auto;
   }
   .app-card {
-    background: var(--white);
+    background: rgba(255,255,255,0.96);
     border-radius: var(--radius);
     padding: 36px 32px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(0,198,174,0.1);
+    box-shadow: 0 16px 45px rgba(0,0,0,0.28);
+    border: 1px solid rgba(0,224,198,0.22);
     transition: transform 0.2s, box-shadow 0.2s;
     position: relative; overflow: hidden;
     display: flex; flex-direction: column;
   }
-  .app-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,198,174,0.18); }
+  .app-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,198,174,0.20); }
   .app-card::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; height: 4px;
@@ -263,12 +274,21 @@
     color: rgba(255,255,255,0.6);
     font-size: 0.88rem; line-height: 1.5;
   }
+  .promise-tagline {
+    text-align: center;
+    color: rgba(255,255,255,0.82);
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-top: 36px;
+    letter-spacing: 0.3px;
+  }
 
   /* ── ABOUT ── */
   #about {
     padding: 100px 24px;
-    background: var(--white);
+    background: #ffffff;
   }
+  #about .section-title { color: var(--ocean); }
   .about-inner {
     max-width: 800px; margin: 0 auto; text-align: center;
   }
@@ -301,8 +321,9 @@
   /* ── PRIVACY ── */
   #privacy {
     padding: 100px 24px;
-    background: #f7fcfb;
+    background: #eefaf8;
   }
+  #privacy .section-title { color: var(--ocean); }
   .privacy-inner {
     max-width: 780px; margin: 0 auto;
   }
@@ -339,6 +360,7 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 680px) {
+    .hero-logo { width: min(520px, 94vw); margin-bottom: 20px; }
     nav { padding: 16px 20px; }
     nav ul { gap: 18px; }
     nav ul a { font-size: 0.90rem; }
@@ -361,7 +383,7 @@
 <!-- HERO -->
 <section id="hero">
   <div style="text-align:center;">
-    <img src="SHARKGrey.png" alt="SHARK TECH LLC" style="height:150px; margin-bottom:16px;"/>
+    <img src="SHARKGrey.png" alt="SHARK TECH LLC" class="hero-logo"/>
   </div>
   <h1>Simple apps.<br><span>Real utility.</span></h1>
   <p>We build mobile apps that solve real problems — no ads, no subscriptions, no nonsense. Pay once and it's yours.</p>
@@ -484,25 +506,26 @@
   <div class="promise-grid">
     <div class="promise-item">
       <div class="promise-icon">🚫</div>
-      <h4>Zero Ads</h4>
-      <p>No advertising. Ever. We don't sell your attention.</p>
+      <h4>No Ads. Ever.</h4>
+      <p>No advertising. We don't sell your attention.</p>
     </div>
     <div class="promise-item">
       <div class="promise-icon">💳</div>
-      <h4>One-Time Fee</h4>
+      <h4>One-Time Payment</h4>
       <p>Pay once. Use it forever. No recurring charges.</p>
     </div>
     <div class="promise-item">
       <div class="promise-icon">📴</div>
-      <h4>No Account</h4>
-      <p>No sign-up. No login. Just open and use it.</p>
+      <h4>No Account Required</h4>
+      <p>No sign-up. No login. Just use it.</p>
     </div>
     <div class="promise-item">
       <div class="promise-icon">🔒</div>
-      <h4>Your Data</h4>
-      <p>Everything stays on your device. We can't see it — we don't want to.</p>
+      <h4>Your Data Stays Yours</h4>
+      <p>Everything stays on your device. We can’t see it—and we don’t want to.</p>
     </div>
   </div>
+  <p class="promise-tagline">Built for simplicity. Designed for clarity.</p>
 </section>
 
 <!-- ABOUT & CONTACT -->
