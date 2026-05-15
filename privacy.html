@@ -147,26 +147,26 @@
 
 <!-- CONTENT -->
 <div class="content">
-  <div class="updated-note">Last updated: May 2026</div>
+  <div class="updated-note">Last updated: April 2026</div>
 
   <p>SHARK TECH, LLC ("we," "our," or "us") operates mobile applications available on the Google Play Store, including <strong>any of our immigration tracking and test preparation apps</strong>. This Privacy Policy explains our practices regarding information in those apps and on this website.</p>
 
-  <h2>1. No Personal Data Collected or Stored</h2>
-  <p>We do not collect, retain, or store any personal information on our servers. Our apps do not require an account, do not ask for your name or email address, and do not store any user data on our servers. Case numbers transmitted to retrieve status information are used solely to query government systems and are never logged, stored, or retained on our end.</p>
+  <h2>1. No Personal Data Collected</h2>
+  <p>We do not collect, transmit, or store any personal information. Our apps do not require an account, do not ask for your name, email address, or any identifying information, and do not send any user data to our servers — because we don't operate servers that receive user data.</p>
 
   <h2>2. Data Stored On Your Device</h2>
   <p>All data you enter into our apps (such as tracked priority dates or preferences) is stored locally on your device only. This data never leaves your device except as described in Section 3 below. You can remove all app data at any time by uninstalling the app.</p>
 
   <h2>3. Network Access</h2>
-  <p>Our apps connect to the internet solely to retrieve information required for app functionality. For case status apps, this works as follows:</p>
+  <p>Our apps may connect to the internet solely to fetch publicly available information required for app functionality. For example:</p>
   <ul>
-    <li><strong>My Case Tracker / My Receipt Decoder:</strong> Your receipt number is sent to our secure backend server (hosted on Google Cloud Run), which queries the USCIS Case Status API on your behalf and returns the result. Your receipt number is used only to make this query — it is never stored, logged, or retained on our server.</li>
-    <li><strong>My Visa Priority Alert:</strong> The app fetches Visa Bulletin data from publicly available JSON files hosted on GitHub Gist (gist.githubusercontent.com/gosharktech), maintained by SHARK TECH, LLC. No personal data is transmitted.</li>
-    <li><strong>My NVC Case Tracker:</strong> The app queries the CEAC case status system at ceac.state.gov. No personal data beyond the case number is transmitted, and it is not stored by us.</li>
-    <li><strong>My Citizenship Prep:</strong> Civics test content is bundled with the app. No network access is required for core functionality.</li>
-    <li>App configuration data hosted on GitHub (public data)</li>
+	  <li>USCIS Visa Bulletin published at uscis.gov (My Visa Priority Alert)</li>
+	  <li>USCIS Case Status API at api.uscis.gov (My Case Tracker)</li>
+	  <li>CEAC case status system at ceac.state.gov (My NVC Case Tracker)</li>
+	  <li>USCIS civics test content at uscis.gov (My Citizenship Prep)</li>
+	  <li>App configuration data hosted on GitHub (public data)</li>
   </ul>
-  <p>We operate a backend server solely as a secure proxy to government APIs. This server does not store, log, or retain case numbers or any user data. It exists to keep government API credentials secure, as required by those APIs' terms of service.</p>
+  <p>No personal data is transmitted during these requests. The requests are equivalent to a web browser loading a public webpage. We do not log, store, or analyze these requests on our end.</p>
 
   <h2>4. Notifications</h2>
   <p>Push notifications in our apps are generated and delivered locally on your device using Android's built-in notification system. We do not use third-party push notification services, and no data is transmitted to remote servers in order to deliver notifications.</p>
@@ -184,7 +184,7 @@
   <p>This website (gosharktech.com) is a static informational site. It does not use cookies, analytics, or tracking scripts of any kind. No information is collected when you visit this site.</p>
 
   <h2>9. Your Rights</h2>
-  <p>We do not store personal data on our servers. Case numbers transit through our backend server solely to query government APIs and are never retained. Any data stored by our apps exists only on your device and can be permanently removed at any time by uninstalling the app or clearing its local storage. If you contact us requesting data deletion, we will confirm that no personal data is stored by us.</p>
+  <p>Because we do not collect or store personal data on our servers, there is no server-side data to access, correct, or delete. Any data stored by our apps exists only on your device and can be permanently removed at any time by uninstalling the app or clearing its local storage. If you contact us requesting data deletion, we will confirm that no personal data is stored by us.</p>
 
   <h2>10. Changes to This Policy</h2>
   <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of our apps after any changes constitutes acceptance of the revised policy. We encourage you to review this page periodically.</p>
