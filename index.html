@@ -26,6 +26,13 @@
     overflow-x: hidden;
   }
 
+  a {
+    color: #0a2540;
+    font-weight: 700;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -388,6 +395,9 @@
   </div>
   <h1>Simple apps.<br><span>Real utility.</span></h1>
   <p>We build mobile apps that solve real problems — no ads, no subscriptions, no nonsense. Pay once and it's yours.</p>
+  <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); max-width:600px; margin-top:10px;">
+    This app is not affiliated with USCIS or any U.S. government agency. It provides publicly available information for personal tracking purposes only.
+  </p>
   <div class="hero-pills">
     <span class="pill"><span class="icon">🚫</span>No Ads</span>
     <span class="pill"><span class="icon">💳</span>One-Time Fee</span>
@@ -443,7 +453,7 @@
         <li>Movement alerts via notification</li>
         <li>Full bulletin history &amp; trends</li>
         <li>All data stored on your device</li>
-        <li>No account. No server. No cloud.</li>
+        <li>No account. No personal data stored on our servers. No cloud storage.</li>
       </ul>
       <div class="app-price">$4.99 <span class="note">one-time · Android</span></div>
       <a class="btn-store disabled" href="#">
@@ -487,7 +497,7 @@
         <li>Instant push notifications on updates</li>
         <li>Full status history timeline</li>
         <li>Plain-English status explanations</li>
-        <li>No account. No cloud. 100% private.</li>
+        <li>No account. No data stored on our servers. 100% private.</li>
       </ul>
       <div class="app-price">$4.99 <span class="note">one-time · Android</span></div>
       <a class="btn-store disabled" href="#">
@@ -561,12 +571,12 @@
   <div class="section-label">Legal</div>
   <h2 class="section-title">Privacy Policy</h2>
   <div class="privacy-inner">
-    <p class="privacy-updated">Last updated: April 2026</p>
+    <p class="privacy-updated">Last updated: May 2026</p>
 
     <p>SHARK TECH, LLC ("we," "our," or "us") operates mobile applications available on the Google Play Store. This Privacy Policy explains our practices regarding information in those apps.</p>
 
     <h3>1. No Personal Data Collected</h3>
-    <p>We do not collect, transmit, or store any personal information. Our apps do not require an account, do not ask for your name, email address, or any identifying information, and do not send any user data to our servers — because we don't have any servers that receive user data.</p>
+    <p>We do not collect, retain, or store any personal information on our servers. Our apps do not require an account and do not ask for your name or email address. Case numbers transmitted to retrieve status information are used solely to query government systems and are never logged, stored, or retained by us.</p>
 
     <h3>2. Data Stored On Your Device</h3>
     <p>All data you enter into our apps (such as tracked case numbers, priority dates, or study progress) is stored locally on your device only. This data never leaves your device except as described below.</p>
@@ -575,12 +585,12 @@
     <p>Our apps may connect to the internet solely to fetch publicly available information required for app functionality, such as:</p>
     <ul>
       <li>USCIS Visa Bulletin data (published at uscis.gov — public information)</li>
-      <li>USCIS case status information (published at egov.uscis.gov — public information)</li>
+      <li><strong>Case status apps:</strong> Your receipt or case number is sent to our secure backend server (Google Cloud Run), which queries USCIS on your behalf. The number is used only for this query and is never stored or logged by us.</li>
       <li>National Visa Center case status information (published at ceac.state.gov — public information)</li>
       <li>App configuration data hosted on GitHub (public data)</li>
     </ul>
-    <p>No personal data is transmitted during these requests. The requests are equivalent to visiting a public webpage.</p>
-
+    <p>For Visa Bulletin and civics content, no personal data is transmitted — these are equivalent to visiting a public webpage. For case status lookups, your receipt number transits our secure backend server but is never stored or retained.</p>
+    <p>Our applications are designed to minimize unnecessary requests to third-party services. We validate user input locally and limit request frequency to ensure responsible use of public systems and compliance with applicable service guidelines.</p>
     <h3>4. Notifications</h3>
     <p>Push notifications in our apps are generated and delivered locally on your device. We do not use third-party push notification services that transmit data to remote servers.</p>
 
@@ -594,13 +604,13 @@
     <p>Our apps do not include third-party advertising SDKs, analytics services, or tracking libraries. The only third-party service involved is Google Play Billing for in-app purchases, which is governed by Google's own privacy policy.</p>
 
     <h3>8. Your Rights</h3>
-    <p>Because we collect no personal data, there is nothing for us to access, correct, or delete on your behalf. All data stored by our apps lives on your device and can be removed by uninstalling the app.</p>
+    <p>We do not store personal data on our servers. Case numbers transit our backend solely to query government APIs and are never retained. Any data stored by our apps exists only on your device and can be permanently removed at any time by uninstalling the app or clearing its local storage.</p>
 
     <h3>9. Changes to This Policy</h3>
     <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date above. Continued use of our apps after any changes constitutes acceptance of the revised policy.</p>
 
     <h3>10. Contact Us</h3>
-    <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:contactus@gosharktech.com" style="color:var(--teal);">contactus@gosharktech.com</a>. We will respond within 30 days.</p>
+    <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:contactus@gosharktech.com">contactus@gosharktech.com</a>. We will respond within 30 days.</p>
   </div>
 </section>
 
