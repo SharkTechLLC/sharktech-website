@@ -13,13 +13,17 @@
     --teal2:  #00e0c6;
     --white:  #ffffff;
     --gray:   #6b7a8d;
+    --soft:   #f7fcfb;
+    --card:   #ffffff;
+    --line:   rgba(0,198,174,0.22);
     --radius: 18px;
   }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Nunito', sans-serif;
-    background: #f7fcfb;
+    background: var(--soft);
     color: var(--ocean);
   }
 
@@ -63,34 +67,39 @@
     margin-bottom: 12px;
   }
   .page-header p {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.92rem;
+    color: rgba(255,255,255,0.58);
+    font-size: 0.94rem;
   }
 
   /* ── CONTENT ── */
   .content {
-    max-width: 780px; margin: 0 auto;
+    max-width: 820px; margin: 0 auto;
     padding: 64px 24px 100px;
   }
   .content h2 {
-    font-size: 1.1rem; font-weight: 800;
-    color: var(--ocean); margin: 40px 0 10px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid rgba(0,198,174,0.2);
+    font-family: 'Space Mono', monospace;
+    font-size: 1.08rem;
+    line-height: 1.45;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ocean);
+    margin: 44px 0 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
   }
   .content h2:first-child { margin-top: 0; }
   .content p {
-    color: var(--gray); font-size: 0.97rem;
-    line-height: 1.8; margin-bottom: 14px;
+    color: var(--gray); font-size: 1rem;
+    line-height: 1.82; margin-bottom: 14px;
   }
   .content ul {
-    padding-left: 20px; margin: 8px 0 14px;
+    padding-left: 22px; margin: 8px 0 16px;
   }
   .content ul li {
-    color: var(--gray); font-size: 0.97rem;
-    line-height: 1.8; margin-bottom: 6px;
+    color: var(--gray); font-size: 1rem;
+    line-height: 1.75; margin-bottom: 8px;
   }
-  .content a { color: var(--teal); text-decoration: none; }
+  .content a { color: #008f80; text-decoration: none; font-weight: 800; }
   .content a:hover { text-decoration: underline; }
 
   .updated-note {
@@ -99,8 +108,37 @@
     border: 1px solid rgba(0,198,174,0.25);
     border-radius: 999px;
     padding: 6px 18px;
-    font-size: 0.82rem; color: var(--teal);
-    font-weight: 700; margin-bottom: 36px;
+    font-size: 0.82rem; color: #008f80;
+    font-weight: 800; margin-bottom: 28px;
+  }
+
+  .intro-card,
+  .disclaimer-card,
+  .source-card {
+    background: var(--card);
+    border: 1px solid rgba(10,37,64,0.08);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: 0 10px 28px rgba(6,24,40,0.06);
+    margin: 0 0 26px;
+  }
+
+  .intro-card {
+    border-left: 4px solid var(--teal);
+  }
+
+  .disclaimer-card {
+    border-left: 4px solid #ffb020;
+    background: #fffdf7;
+  }
+
+  .disclaimer-card h2,
+  .source-card h2 {
+    margin-top: 0;
+  }
+
+  .source-card {
+    border-left: 4px solid var(--teal);
   }
 
   /* ── FOOTER ── */
@@ -122,6 +160,7 @@
   @media (max-width: 680px) {
     nav { padding: 16px 20px; }
     nav ul { gap: 18px; }
+    .content { padding: 48px 20px 84px; }
   }
 </style>
 </head>
@@ -147,48 +186,113 @@
 
 <!-- CONTENT -->
 <div class="content">
-  <div class="updated-note">Last updated: April 2026</div>
+  <div class="updated-note">Last updated: May 2026</div>
 
-  <p>SHARK TECH, LLC ("we," "our," or "us") operates mobile applications available on the Google Play Store, including <strong>any of our immigration tracking and test preparation apps</strong>. This Privacy Policy explains our practices regarding information in those apps and on this website.</p>
+  <div class="intro-card">
+    <p>SHARK TECH, LLC ("we," "our," or "us") operates mobile applications available on the Google Play Store, including our immigration tracking, receipt decoding, and citizenship test preparation apps. This Privacy Policy explains our practices regarding information in those apps and on this website.</p>
+  </div>
 
-  <h2>1. No Personal Data Collected</h2>
-  <p>We do not collect, transmit, or store any personal information. Our apps do not require an account, do not ask for your name, email address, or any identifying information, and do not send any user data to our servers — because we don't operate servers that receive user data.</p>
+  <div class="disclaimer-card">
+    <h2>Disclaimer</h2>
+    <p>Our apps are independent applications and are not affiliated with, endorsed by, sponsored by, or operated by USCIS, the U.S. Department of State, the Department of Homeland Security, or any other government agency.</p>
+    <p>Immigration-related information displayed in our apps may be obtained from publicly available official government resources. Official government source links are listed in the <a href="#official-sources">Official Government Sources</a> section near the bottom of this document.</p>
+  </div>
+
+  <h2>1. No Personal Data Collected by SHARK TECH Servers</h2>
+  <p>We do not collect, sell, or use personal information for advertising or tracking. Our apps do not require an account and do not ask for your name, email address, or other identifying information to use core features.</p>
+  <p>For apps that check USCIS case status or decode receipt information, a receipt or case number may be transmitted only when needed to retrieve status information. That number is used solely to query the applicable government system through our backend service or public source and is not logged, stored, retained, sold, or analyzed by us.</p>
 
   <h2>2. Data Stored On Your Device</h2>
-  <p>All data you enter into our apps (such as tracked priority dates or preferences) is stored locally on your device only. This data never leaves your device except as described in Section 3 below. You can remove all app data at any time by uninstalling the app.</p>
+  <p>All data you enter into our apps, such as tracked priority dates, receipt numbers, case numbers, preferences, language selection, and saved items, is stored locally on your device unless a specific feature requires a temporary request as described in Section 3.</p>
+  <p>You can remove locally stored app data at any time by uninstalling the app or clearing the app data through your device settings.</p>
 
- <h2>3. Network Access</h2>
-<p>Our apps may connect to the internet solely to fetch publicly available information required for app functionality. For example:</p>
-<ul>
-    <li>Visa Bulletin data from publicly available JSON files hosted on GitHub Gist (gist.githubusercontent.com/gosharktech), maintained by SHARK TECH, LLC (My Visa Priority Alert)</li>
-    <li>CEAC case status system at ceac.state.gov (My NVC Case Tracker)</li>
-    <li>USCIS civics test content at uscis.gov (My Citizenship Prep)</li>
-    <li>App configuration data hosted on GitHub (public data)</li>
-</ul>
-  <p>No personal data is transmitted during these requests. The requests are equivalent to a web browser loading a public webpage. We do not log, store, or analyze these requests on our end.</p>
+  <h2>3. Network Access</h2>
+  <p>Our apps connect to the internet only to provide app functionality, retrieve public data, check official sources, or process optional purchases. For example:</p>
+  <ul>
+    <li><strong>My Visa Priority Alert:</strong> Fetches Visa Bulletin and filing-chart data from publicly available files maintained by SHARK TECH, LLC using official U.S. government source material. No personal data is transmitted.</li>
+    <li><strong>My Case Tracker / My Receipt Decoder:</strong> May submit a receipt or case number to the SHARK TECH backend proxy, which queries USCIS case-status information. The number is used only to retrieve the requested status and is not stored by us.</li>
+    <li><strong>My NVC Tracker:</strong> May connect to public Department of State or CEAC/NVC resources to retrieve status or timeframe information needed for app functionality.</li>
+    <li><strong>My Citizenship Prep:</strong> May use USCIS-published civics test content and other publicly available educational content.</li>
+    <li>App configuration or update data may be hosted on GitHub or similar public hosting services.</li>
+  </ul>
+  <p>We do not use these requests to track users, build profiles, or sell data.</p>
 
-  <h2>4. Notifications</h2>
-  <p>Push notifications in our apps are generated and delivered locally on your device using Android's built-in notification system. We do not use third-party push notification services, and no data is transmitted to remote servers in order to deliver notifications.</p>
+  <h2>4. Data Retention</h2>
+  <p>We do not retain user case data, receipt numbers, priority dates, or tracked immigration information on our servers. User-entered data remains on your device until you delete it, clear app storage, or uninstall the app.</p>
 
-  <h2>5. In-App Purchases</h2>
-  <p>Some apps offer optional one-time purchases through Google Play Billing. All payment processing is handled entirely by Google. We do not receive, process, or store your payment information at any point. Google's Privacy Policy governs all billing transactions. You can review Google's Privacy Policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+  <h2>5. Data Deletion</h2>
+  <p>Because we do not store your tracked app data on our servers, there is no server-side case data for us to delete. To delete app data, uninstall the app or go to your device Settings → Apps → [App Name] → Clear Data.</p>
+  <p>If you contact us with a data deletion question, we will respond within 30 days and confirm whether any server-side information exists related to your inquiry.</p>
 
-  <h2>6. No Advertising or Tracking</h2>
-  <p>Our apps do not include advertising SDKs, analytics libraries, crash reporting services, or any other third-party tracking tools. We do not serve ads. We do not track your usage. We do not sell or share data with any third party for marketing purposes.</p>
+  <h2>6. Data Security</h2>
+  <p>Network requests made by our apps use HTTPS encryption in transit where supported. We do not operate databases containing users' tracked immigration data.</p>
+  <p>In the unlikely event that a security incident affects a system operated by SHARK TECH, LLC and could impact users, we will provide notice through appropriate means, such as app update release notes, this website, or in-app messaging where available.</p>
 
-  <h2>7. Children's Privacy</h2>
-  <p>Our apps are not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us at <a href="mailto:contactus@gosharktech.com">contactus@gosharktech.com</a> and we will address it promptly.</p>
+  <h2>7. Transfer of Ownership</h2>
+  <p>If SHARK TECH, LLC is involved in a merger, acquisition, or sale, we do not have user-tracked immigration data stored on our servers to transfer. We will notify users of material ownership or policy changes through app release notes or this website.</p>
 
-  <h2>8. This Website</h2>
-  <p>This website (gosharktech.com) is a static informational site. It does not use cookies, analytics, or tracking scripts of any kind. No information is collected when you visit this site.</p>
+  <h2>8. Third-Party Data Sharing</h2>
+  <p>We do not sell, trade, rent, or share user data with advertisers, data brokers, or analytics providers for marketing purposes.</p>
+  <p>The limited third-party interactions used by our apps may include:</p>
+  <ul>
+    <li><strong>Google Play Billing:</strong> Handles optional in-app purchases. We do not receive or store your payment card information.</li>
+    <li><strong>Official government systems and public sources:</strong> Used only when necessary to retrieve public information or case-status information requested by the user.</li>
+    <li><strong>Public hosting services:</strong> Used to host public app configuration or public data files.</li>
+  </ul>
 
-  <h2>9. Your Rights</h2>
-  <p>Because we do not collect or store personal data on our servers, there is no server-side data to access, correct, or delete. Any data stored by our apps exists only on your device and can be permanently removed at any time by uninstalling the app or clearing its local storage. If you contact us requesting data deletion, we will confirm that no personal data is stored by us.</p>
+  <h2>9. California Consumer Privacy Act (CCPA)</h2>
+  <p>We do not sell or share personal information as those terms are commonly used for advertising or data-broker purposes. Because our apps are designed without accounts, advertising SDKs, or tracking analytics, we do not use personal information for behavioral advertising.</p>
 
-  <h2>10. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of our apps after any changes constitutes acceptance of the revised policy. We encourage you to review this page periodically.</p>
+  <h2>10. Notifications</h2>
+  <p>Notifications in our apps are generated and delivered using the device's notification system. Where supported, alerts are based on information stored locally on your device and public update checks. We do not use notifications to track you or advertise to you.</p>
 
-  <h2>11. Contact Us</h2>
+  <h2>11. In-App Purchases</h2>
+  <p>Some apps offer optional one-time purchases through Google Play Billing. Payment processing is handled by Google. We do not receive, process, or store your payment card information. Google's Privacy Policy governs billing transactions and can be reviewed at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+  <h2>12. No Advertising or Tracking</h2>
+  <p>Our apps do not include advertising SDKs, third-party analytics libraries, or third-party tracking tools. We do not serve ads, track your usage for marketing, or sell data to third parties.</p>
+
+  <h2>13. Children's Privacy</h2>
+  <p>Our apps are not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently received such information, please contact us at <a href="mailto:contactus@gosharktech.com">contactus@gosharktech.com</a>.</p>
+
+  <h2>14. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Material changes may also be summarized in app release notes.</p>
+  <p>Continued use of our apps after a policy update constitutes acceptance of the revised policy. If you do not agree with a change, you may uninstall the app and delete your local data at any time.</p>
+
+  <h2>15. This Website</h2>
+  <p>This website, gosharktech.com, is a static informational site. It does not use cookies, analytics, or tracking scripts. No information is collected when you visit this site.</p>
+
+  <h2>16. Your Rights</h2>
+  <p>Because we do not store tracked app data on our servers, there is generally no server-side user data to access, correct, or delete. Any data stored by our apps exists locally on your device and remains under your control.</p>
+  <p>For privacy questions or deletion confirmation requests, contact us at <a href="mailto:contactus@gosharktech.com">contactus@gosharktech.com</a>.</p>
+
+  <div class="source-card" id="official-sources">
+    <h2>17. Official Government Sources</h2>
+    <p>Our apps may use or link to publicly available information from official government sources, including:</p>
+    <ul>
+      <li><strong>U.S. Department of State Visa Bulletin:</strong><br>
+        <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html</a>
+      </li>
+      <li><strong>USCIS Visa Bulletin Information:</strong><br>
+        <a href="https://www.uscis.gov/visabulletininfo" target="_blank" rel="noopener">https://www.uscis.gov/visabulletininfo</a>
+      </li>
+      <li><strong>USCIS Case Status Online:</strong><br>
+        <a href="https://egov.uscis.gov/" target="_blank" rel="noopener">https://egov.uscis.gov/</a>
+      </li>
+      <li><strong>USCIS Processing Times:</strong><br>
+        <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener">https://egov.uscis.gov/processing-times/</a>
+      </li>
+      <li><strong>National Visa Center Timeframes:</strong><br>
+        <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/nvc-timeframes.html" target="_blank" rel="noopener">https://travel.state.gov/content/travel/en/us-visas/immigrate/nvc-timeframes.html</a>
+      </li>
+      <li><strong>USCIS Official Website:</strong><br>
+        <a href="https://www.uscis.gov/" target="_blank" rel="noopener">https://www.uscis.gov/</a>
+      </li>
+    </ul>
+    <p>Always verify important immigration information directly through official government websites.</p>
+  </div>
+
+  <h2>18. Contact Us</h2>
   <p>If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us:</p>
   <ul>
     <li><strong>Email:</strong> <a href="mailto:contactus@gosharktech.com">contactus@gosharktech.com</a></li>
@@ -201,7 +305,7 @@
 <footer>
   <div class="footer-logo">SHARK TECH, LLC</div>
   <p style="margin-bottom:10px;">Simple apps. Real utility. Built with care.</p>
-  <p><a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/#about">Contact</a> &nbsp;·&nbsp; © 2026 SHARK TECH, LLC. All rights reserved.</p>
+  <p><a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="/#about">Contact</a> &nbsp;·&nbsp; © 2026 SHARK TECH, LLC. All rights reserved.</p>
 </footer>
 
 </body>
