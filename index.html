@@ -37,13 +37,13 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
+    padding: 16px 40px;
     background: rgba(10,37,64,0.96);
     backdrop-filter: blur(12px);
   }
   .nav-logo {
     font-family: 'Space Mono', monospace;
-    font-size: 1.5rem; font-weight: 700;
+    font-size: 1.35rem; font-weight: 700;
     color: var(--teal); letter-spacing: 2px;
     text-decoration: none;
   }
@@ -51,7 +51,7 @@
   nav ul { list-style: none; display: flex; gap: 32px; }
   nav ul a {
     text-decoration: none; color: rgba(255,255,255,0.8);
-    font-weight: 700; font-size: 1rem; letter-spacing: 0.5px;
+    font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px;
     transition: color 0.2s;
   }
   nav ul a:hover { color: var(--teal2); }
@@ -102,14 +102,14 @@
     font-family: 'Space Mono', monospace;
     font-size: clamp(2.4rem, 6vw, 4.5rem);
     font-weight: 700; color: var(--white);
-    line-height: 1.1; margin-bottom: 24px;
+    line-height: 1.1; margin-bottom: 32px;
     letter-spacing: -1px;
   }
   #hero h1 span { color: var(--teal); }
   #hero p {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: rgba(255,255,255,0.7);
-    max-width: 600px; line-height: 1.7;
+    max-width: 680px; line-height: 1.7;
     margin-bottom: 40px;
   }
   .hero-pills {
@@ -157,13 +157,13 @@
   .section-label {
     text-align: center;
     font-family: 'Space Mono', monospace;
-    font-size: 1.50rem; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase;
+    font-size: 1rem; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
     color: var(--teal2); margin-bottom: 16px;
   }
   .section-title {
     text-align: center;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-size: clamp(2rem, 4vw, 2.6rem);
     font-weight: 900; color: var(--white);
     margin-bottom: 16px;
   }
@@ -181,7 +181,7 @@
   .app-card {
     background: rgba(255,255,255,0.96);
     border-radius: var(--radius);
-    padding: 36px 32px;
+    padding: 32px 28px;
     box-shadow: 0 16px 45px rgba(0,0,0,0.28);
     border: 1px solid rgba(0,224,198,0.22);
     transition: transform 0.2s, box-shadow 0.2s;
@@ -216,6 +216,14 @@
     background: rgba(0,198,174,0.12);
     color: var(--teal);
   }
+  .app-status.testing {
+    background: rgba(34,197,94,0.12);
+    color: #22c55e;
+  }
+  .app-status.development {
+    background: rgba(245,158,11,0.12);
+    color: #f59e0b;
+  }
   .app-card h3 {
     font-size: 1.3rem; font-weight: 900;
     color: var(--ocean); margin-bottom: 10px;
@@ -230,12 +238,12 @@
   }
   .app-features li {
     font-size: 0.88rem; color: var(--ocean);
-    padding: 4px 0; font-weight: 600;
+    padding: 6px 0; font-weight: 600;
   }
   .app-features li::before { content: '✓ '; color: var(--teal); font-weight: 900; }
   .app-price {
 	  font-family: 'Nunito', sans-serif;
-	  font-size: 1.3rem; font-weight: 900;
+	  font-size: 1.45rem; font-weight: 900;
 	  color: var(--ocean); margin-bottom: 18px;
 	}
   .app-price .note { font-size: 0.75rem; color: var(--gray); font-family: 'Nunito', sans-serif; }
@@ -254,6 +262,102 @@
     pointer-events: none;
   }
   .btn-store svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  /* ── APP FINDER ── */
+  .app-finder {
+    max-width: 1120px;
+    margin: 0 auto 60px;
+    padding: 34px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(0,224,198,0.18);
+    border-radius: var(--radius);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 16px 45px rgba(0,0,0,0.22);
+  }
+  .app-finder h3 {
+    color: var(--white);
+    font-size: 1.75rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .app-finder > p {
+    color: rgba(255,255,255,0.72);
+    text-align: center;
+    margin: 0 auto 28px;
+    max-width: 640px;
+    line-height: 1.6;
+  }
+  .finder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .finder-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .finder-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 164px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .finder-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0,224,198,0.45);
+    background: rgba(255,255,255,0.11);
+    text-decoration: none;
+  }
+  .finder-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  .finder-card strong {
+    color: var(--white);
+    font-size: 1.02rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .finder-card span {
+    color: rgba(255,255,255,0.66);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+  .finder-result {
+    color: var(--teal2);
+    font-weight: 900;
+    margin-top: auto;
+    padding-top: 14px;
+    font-size: 0.88rem;
+  }
+  .finder-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+  .finder-actions .btn-secondary {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    .app-finder {
+      padding: 26px 18px;
+    }
+    .finder-grid {
+      grid-template-columns: 1fr;
+    }
+    .finder-card {
+      min-height: auto;
+    }
+  }
 
   /* ── PROMISE ── */
   #promise {
@@ -353,24 +457,25 @@
   footer {
     background: var(--deep);
     color: rgba(255,255,255,0.5);
-    text-align: center; padding: 40px 24px;
+    text-align: center; padding: 56px 24px;
     font-size: 0.88rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
   .footer-logo {
     font-family: 'Space Mono', monospace;
-    font-size: 1rem; color: var(--teal);
+    font-size: 0.95rem; color: var(--teal);
     letter-spacing: 2px; margin-bottom: 12px;
     font-weight: 700;
   }
-  footer a { color: var(--teal); text-decoration: none; }
+  footer a { color: rgba(0,224,198,0.85); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 680px) {
     .hero-logo { width: min(520px, 94vw); margin-bottom: 20px; }
     nav { padding: 16px 20px; }
-    nav ul { gap: 18px; }
-    nav ul a { font-size: 0.90rem; }
+    nav ul { gap: 12px; }
+    nav ul a { font-size: 0.82rem; }
     .contact-card { padding: 28px 20px; }
   }
 </style>
@@ -379,12 +484,13 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">SHARK<span> TECH</span></a>
+  <a href="index.html#hero" class="nav-logo">SHARK<span> TECH</span></a>
   <ul>
-    <li><a href="#apps">Apps</a></li>
-    <li><a href="#about">Contact</a></li>
-    <li><a href="/privacy.html">Privacy</a></li>
-    <li><a href="/terms.html">Terms</a></li>
+    <li><a href="index.html#apps">Apps</a></li>
+    <li><a href="compare.html">Matrix</a></li>
+    <li><a href="index.html#about">Contact</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
   </ul>
 </nav>
 
@@ -395,7 +501,7 @@
   </div>
   <h1>Simple apps.<br><span>Real utility.</span></h1>
   <p>We build mobile apps that solve real problems — no ads, no subscriptions, no nonsense. Pay once and it's yours.</p>
-  <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); max-width:600px; margin-top:10px;">
+  <p style="font-size:0.8rem; color:rgba(255,255,255,0.55); max-width:640px; margin-top:10px;">
     This app is not affiliated with USCIS or any U.S. government agency. It provides publicly available information for personal tracking purposes only.
   </p>
   <div class="hero-pills">
@@ -405,8 +511,8 @@
     <span class="pill"><span class="icon">🔒</span>Your Data Stays on Your Device</span>
   </div>
   <div class="hero-cta">
-    <a href="#apps" class="btn-primary">See Our Apps</a>
-    <a href="#about" class="btn-secondary">Contact Us</a>
+    <a href="index.html#apps" class="btn-primary">See Our Apps</a>
+    <a href="index.html#about" class="btn-secondary">Contact Us</a>
   </div>
 </section>
 
@@ -416,24 +522,93 @@
   <h2 class="section-title">Tools that actually help</h2>
   <p class="section-sub">Built for people who need reliable information, not more subscriptions.</p>
 
+  <div class="app-finder">
+    <h3>Quick App Finder</h3>
+    <p>Not sure which app you need? Choose what you are trying to do, then compare the full details if needed.</p>
+
+    <div class="finder-grid">
+      <a class="finder-card" href="#receipt-decoder">
+        <div class="finder-icon">🔎</div>
+        <strong>Decode a USCIS receipt number</strong>
+        <span>Understand the receipt, service center, estimated filing window, and current status.</span>
+        <div class="finder-result">Use My Receipt Decoder →</div>
+      </a>
+
+      <a class="finder-card" href="#case-tracker">
+        <div class="finder-icon">🔔</div>
+        <strong>Track a USCIS case automatically</strong>
+        <span>Monitor status changes, keep history, and get notifications.</span>
+        <div class="finder-result">Use My Case Tracker →</div>
+      </a>
+
+      <a class="finder-card" href="#visa-priority-alert">
+        <div class="finder-icon">📅</div>
+        <strong>Watch a visa priority date</strong>
+        <span>Follow Final Action and Filing Dates and get alerted when dates move.</span>
+        <div class="finder-result">Use My Visa Priority Alert →</div>
+      </a>
+
+      <a class="finder-card" href="#nvc-case-tracker">
+        <div class="finder-icon">🧭</div>
+        <strong>Track an NVC case</strong>
+        <span>Follow the immigrant visa process from NVC case creation to interview scheduling.</span>
+        <div class="finder-result">Use My NVC Case Tracker →</div>
+      </a>
+
+      <a class="finder-card" href="#citizenship-prep">
+        <div class="finder-icon">🗽🎓</div>
+        <strong>Prepare for citizenship</strong>
+        <span>Practice civics questions, flashcards, audio, vocabulary, and interview prep.</span>
+        <div class="finder-result">Use My Citizenship Prep →</div>
+      </a>
+    </div>
+
+    <div class="finder-actions">
+      <a href="compare.html" class="btn-secondary">View Full Application Matrix</a>
+    </div>
+  </div>
+
   <div class="apps-grid">
 
+
+    <!-- App 0: My Receipt Decoder -->
+    <div class="app-card" id="receipt-decoder">
+      <div class="app-icon">
+        <img src="my-receipt-decoder.png" alt="My Receipt Decoder icon"/>
+      </div>
+      <div class="app-status testing">In Testing</div>
+      <h3>My Receipt Decoder</h3>
+      <p>Decode USCIS receipt numbers, check current case status manually, view current visa bulletin context, and review NVC timeframes in one free reference app.</p>
+      <ul class="app-features">
+        <li>Unlimited receipt number decoding</li>
+        <li>Manual USCIS case status checks</li>
+        <li>Track up to 2 USCIS cases</li>
+        <li>Monitor up to 2 priority dates</li>
+        <li>NVC timeframes included</li>
+      </ul>
+      <div class="app-price">Free <span class="note">Android</span></div>
+      <a class="btn-store disabled" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
+        Google Play — Coming Soon
+      </a>
+    </div>
+
     <!-- App 1: My Citizenship Prep -->
-    <div class="app-card">
+    <div class="app-card" id="citizenship-prep">
       <div class="app-icon">
         <img src="my-citizenship-prep.png" alt="My Citizenship Prep icon"/>
       </div>
       <div class="app-status soon">Coming Soon</div>
       <h3>My Citizenship Prep</h3>
-      <p>Prepare for the US naturalization civics test with confidence. Covers both the 2008 and 2025 USCIS test versions — including the 65/20 special consideration questions.</p>
+      <p>Prepare for the U.S. naturalization interview with civics practice, vocabulary, reading, writing, interview questions, audio, and Spanish support.</p>
       <ul class="app-features">
-        <li>All 100 (2008) and 128 (2025) civics questions</li>
-        <li>Flashcards, quizzes &amp; interview simulation</li>
-        <li>Audio pronunciation included free</li>
-        <li>Premium AI voice add-on available</li>
-        <li>Available in English &amp; Spanish</li>
+        <li>2008, 2025 &amp; 65/20 special consideration tests</li>
+        <li>Vocabulary, reading &amp; writing practice</li>
+        <li>Interview questions and quiz history</li>
+        <li>Audio included for questions and practice content</li>
+        <li>Spanish captions or full Spanish app/test mode</li>
       </ul>
-      <div class="app-price">$2.99 <span class="note">one-time · Android</span></div>
+      <div class="app-price">$3.99 <span class="note">one-time · Android</span></div>
       <a class="btn-store disabled" href="#">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
         Google Play — Coming Soon
@@ -441,11 +616,11 @@
     </div>
 	
     <!-- App 2: My Visa Priority Alert -->
-    <div class="app-card">
+    <div class="app-card" id="visa-priority-alert">
       <div class="app-icon">
         <img src="my-visa-priority-alert.png" alt="My Visa Priority Alert icon"/>
       </div>
-      <div class="app-status soon">Coming Soon</div>
+      <div class="app-status testing">In Testing</div>
       <h3>My Visa Priority Alert</h3>
       <p>Track USCIS Visa Bulletin priority dates for your family category and country. Get notified the moment your date moves — advance or retrogress.</p>
       <ul class="app-features">
@@ -455,7 +630,7 @@
         <li>All data stored on your device</li>
         <li>No account. No personal data stored on our servers. No cloud storage.</li>
       </ul>
-      <div class="app-price">$4.99 <span class="note">one-time · Android</span></div>
+      <div class="app-price">$3.99 <span class="note">one-time · Android</span></div>
       <a class="btn-store disabled" href="#">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l13.1-7.57-2.9-2.9-11.17 10.4zm-1.11-20.1C2 3.86 2 4.14 2 4.45v15.1c0 .31 0 .59.07.79l.07.07 8.45-8.45v-.2L2.07 3.59l-.07.07zm17.59 9.22l-2.35-1.36-3.02 3.02 3.02 3.02 2.35-1.36c.67-.39.67-1.33 0-1.72l-.07.4zM4.15.24L17.25 7.8l-2.9 2.9L3.18.24C2.86.12 2.51.14 3.18.24l.97-.07z"/></svg>
         Google Play — Coming Soon
@@ -463,11 +638,11 @@
     </div>
 
     <!-- App 3: My NVC Case Tracker -->
-    <div class="app-card">
+    <div class="app-card" id="nvc-case-tracker">
       <div class="app-icon">
         <img src="my-nvc-case-tracker.png" alt="My NVC Case Tracker icon"/>
       </div>
-      <div class="app-status soon">Coming Soon</div>
+      <div class="app-status development">In Development</div>
       <h3>My NVC Case Tracker</h3>
       <p>Track your National Visa Center case through the immigrant visa process. Stay informed at every stage — from case creation to interview scheduling.</p>
       <ul class="app-features">
@@ -485,11 +660,11 @@
     </div>
 	
 	<!-- App 4: My Case Tracker (USCIS) -->
-    <div class="app-card">
+    <div class="app-card" id="case-tracker">
       <div class="app-icon">
         <img src="my-case-tracker.png" alt="My Case Tracker icon"/>
       </div>
-      <div class="app-status soon">Coming Soon</div>
+      <div class="app-status testing">In Testing</div>
       <h3>My Case Tracker</h3>
       <p>Monitor your USCIS case status automatically. Know the moment something changes — without checking manually every day.</p>
       <ul class="app-features">
@@ -577,7 +752,7 @@
     </p>
 
     <div style="margin-top: 32px;">
-      <a href="/privacy.html" class="btn-primary">
+      <a href="privacy.html" class="btn-primary">
         View Full Privacy Policy
       </a>
     </div>
@@ -588,7 +763,7 @@
 <footer>
   <div class="footer-logo">SHARK TECH, LLC</div>
   <p style="margin-bottom:10px;">Simple apps. Real utility. Built with care.</p>
-  <p><a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="#about">Contact</a> &nbsp;·&nbsp; © 2026 SHARK TECH, LLC. All rights reserved.</p>
+  <p><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="index.html#about">Contact</a> &nbsp;·&nbsp; © 2026 SHARK TECH, LLC. All rights reserved.</p>
 </footer>
 
 </body>
